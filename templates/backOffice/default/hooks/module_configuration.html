@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="general-block-decorator">
+            <div class="row">
+                <div class="col-md-12 title title-without-tabs">
+                    <div class="col-md-12 title">
+                        {intl l="Configuration" d="theliadesign"}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {form name="back_office.color.config.form"}
+                    <form method="POST" action="{url path='/admin/module/back_office_color/configuration'}" {form_enctype form=$form} class="clearfix">
+                        {form_hidden_fields form=$form}
+
+                        {foreach from=$config_variables item=label_variable key=key_variable}
+
+                            <div class="row">
+                            {form_field form=$form field=$key_variable}
+
+                                <div class="form-group {$label_attr.class} {if $error}has-error{/if}">
+                                    <label for="{$label_attr.for}" class="control-label">{$label} : </label>
+                                    <input type="{$label_attr.type}" id="{$label_attr.for}" name="{$name}" class="form-control" value="{$value}" title="{$label}" placeholder="{$label}">
+                                    {if $label_attr.helper}
+                                    <div class="help-block">{$label_attr.helper nofilter}</div>
+                                    {/if}
+                                </div>
+
+                            {/form_field}
+                            </div>
+
+                        {/foreach}
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="submit" class="form-control btn btn-primary">{intl l="Save" d="theliadesign"}</button>
+                            </div>
+                        </div>
+                    </form>
+                    {/form}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
