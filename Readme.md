@@ -1,4 +1,4 @@
-#BackOfficeColor
+# BackOfficeColor
 
 This module allows to change the color of the header and adds a custom warning message on all pages in back office.
 
