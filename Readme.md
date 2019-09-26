@@ -14,7 +14,7 @@ This module allows to change the color of the header and adds a custom warning m
 Add it in your main thelia composer.json file
 
 ```
-composer require thelia/back-office-color-module:~1.0
+composer require thelia/back-office-color-module:~1.0.0
 ```
 
 ## Usage
