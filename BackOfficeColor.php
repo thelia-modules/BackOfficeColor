@@ -12,6 +12,7 @@
 
 namespace BackOfficeColor;
 
+use Symfony\Component\DependencyInjection\Loader\Configurator\ServicesConfigurator;
 use Thelia\Core\Translation\Translator;
 use Thelia\Module\BaseModule;
 
@@ -23,6 +24,16 @@ class BackOfficeColor extends BaseModule
     const MODULE_CONFIG_BEFORE_CONTENT_MESSAGE = "before_content_message";
     const MODULE_CONFIG_DEFAULT_BACKGROUND_COLOR = "default_background_color";
 
+    /**
+     * Defines how services are loaded in your modules.
+     */
+    public static function configureServices(ServicesConfigurator $servicesConfigurator): void
+    {
+        $servicesConfigurator->load(self::getModuleCode().'\\', __DIR__)
+            ->exclude([THELIA_MODULE_DIR.ucfirst(self::getModuleCode()).'/I18n/*'])
+            ->autowire(true)
+            ->autoconfigure(true);
+    }
 
     public static function getModuleConfigVariables()
     {

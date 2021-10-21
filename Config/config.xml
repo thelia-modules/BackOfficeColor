@@ -11,7 +11,7 @@
     </loops>
 
     <forms>
-        <form name="back_office.color.config.form" class="BackOfficeColor\Form\BackOfficeColorConfigForm" />
+        <form name="back_office_color_config_form" class="BackOfficeColor\Form\BackOfficeColorConfigForm" />
     </forms>
 
     <commands>

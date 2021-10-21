@@ -2,6 +2,7 @@
 
 namespace BackOfficeColor\Controller\Admin;
 
+use BackOfficeColor\Form\BackOfficeColorConfigForm;
 use Thelia\Controller\Admin\BaseAdminController;
 use Thelia\Model\Lang;
 use Thelia\Tools\URL;
@@ -18,7 +19,7 @@ class BackOfficeColorAdminController extends BaseAdminController
     public function configuration()
     {
 
-        $form = $this->createForm('back_office.color.config.form');
+        $form = $this->createForm(BackOfficeColorConfigForm::class);
 
         try {
             $formValidate = $this->validateForm($form);

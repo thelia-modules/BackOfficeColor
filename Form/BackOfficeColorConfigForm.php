@@ -9,33 +9,13 @@
 namespace BackOfficeColor\Form;
 
 
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Thelia\Form\BaseForm;
 use Thelia\Model\Lang;
 use BackOfficeColor\BackOfficeColor;
 
 class BackOfficeColorConfigForm extends BaseForm
 {
-
-    /**
-     *
-     * in this function you add all the fields you need for your Form.
-     * Form this you have to call add method on $this->formBuilder attribute :
-     *
-     * $this->formBuilder->add("name", "text")
-     *   ->add("email", "email", array(
-     *           "attr" => array(
-     *               "class" => "field"
-     *           ),
-     *           "label" => "email",
-     *           "constraints" => array(
-     *               new \Symfony\Component\Validator\Constraints\NotBlank()
-     *           )
-     *       )
-     *   )
-     *   ->add('age', 'integer');
-     *
-     * @return null
-     */
     protected function buildForm()
     {
         $configVariables = BackOfficeColor::getModuleConfigVariables();
@@ -45,7 +25,7 @@ class BackOfficeColorConfigForm extends BaseForm
             $this->formBuilder
                 ->add(
                     $keyVariable,
-                    'text',
+                    TextType::class,
                     array(
                         'label' => $configVariable['label'],
                         'label_attr' => array(
@@ -63,15 +43,5 @@ class BackOfficeColorConfigForm extends BaseForm
                 )
             ;
         }
-
-
-    }
-
-    /**
-     * @return string the name of you form. This name must be unique
-     */
-    public function getName()
-    {
-        return 'thelia_design_config_form';
     }
 }

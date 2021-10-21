@@ -1,6 +1,17 @@
-<style type="text/css">
-    .navbar {
+<style>
+    .navbar-default .navbar-brand {
         background-color: {$default_bg_color};
         border-color: {$default_bg_color};
+    }
+    .navbar-default .navbar-brand:hover {
+        background-color: {$darker_bg};
+    }
+    .sidebar .nav > li.active > a,
+    .sidebar .nav > li > ul > li.active > a,
+    .sidebar .nav > li > a:hover,
+    .sidebar .nav > li > ul > li > a:hover,
+    .sidebar .nav > li > a:focus,
+    .sidebar .nav > li > ul > li > a:focus {
+        color: {$lighter_bg};
     }
 </style>

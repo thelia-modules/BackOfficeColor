@@ -41,12 +41,16 @@ class BackOfficeColorHook extends BaseHook
             "",
             Lang::getDefaultLanguage()->getLocale()
         );
+        $darkerBg = BackOfficeColor::adjustBrightness($defaultBgColor, -50);
+        $lighterBg = BackOfficeColor::adjustBrightness($defaultBgColor, 50);
 
         $event->add(
             $this->render(
                 'hooks/head_css.html',
                 [
                     'default_bg_color' => $defaultBgColor,
+                    'darker_bg' => $darkerBg,
+                    'lighter_bg' => $lighterBg
                 ]
             )
         );
